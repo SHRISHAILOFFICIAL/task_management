@@ -12,3 +12,13 @@ class Task(Base):
     description = Column(Text, nullable=True)
     status = Column(String(50), default="pending")
     created_at = Column(DateTime, default=datetime.utcnow)
+
+class Users(Base):
+    __tablename__ = "users"
+
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String(100), unique=True, nullable=False)     
+    email = Column(String(200), unique=True, nullable=False)
+    password = Column(String(200), nullable=False)
+
+    

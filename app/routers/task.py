@@ -26,5 +26,32 @@ def get_tasks(db: Session = Depends(get_db)):
 @router.post("/", response_model=TaskResponse,status_code=201)
 def create_task(task_data:TaskCreate, db: Session = Depends(get_db)):
     return task_service.create_task(db, task_data)
-    
 
+@router.get("/{task_id}", response_model=TaskResponse)
+def get_task(
+    task_id: int,
+    db: Session = Depends(get_db)
+):
+
+    return task_service.get_task_by_id(db, task_id)
+
+@router.patch("/{task_id}", response_model=TaskResponse)
+def update_task(
+    task_id: int,
+    task_data: TaskUpdate,
+    db: Session = Depends(get_db)
+):
+
+    return task_service.update_task(
+        db,
+        task_id,
+        task_data
+    )
+
+@router.delete("/{task_id}")
+def delete_task(
+    task_id: int,
+    db: Session = Depends(get_db)
+):
+
+    return task_service.delete_task(db, task_id)
