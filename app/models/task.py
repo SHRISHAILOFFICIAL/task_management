@@ -11,6 +11,7 @@ class Task(Base):
     title = Column(String(200), nullable=False)
     description = Column(Text, nullable=True)
     status = Column(String(50), default="pending")
+    priority = Column(Integer, default=1, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
 
 class Users(Base):
@@ -21,4 +22,4 @@ class Users(Base):
     email = Column(String(200), unique=True, nullable=False)
     password = Column(String(200), nullable=False)
 
-    
+

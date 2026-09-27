@@ -1,7 +1,24 @@
+# Virtual environment
 venv/
-__pycache__/
-*.pyc
+.venv/
+
+# Environment variables / secrets
 .env
-.idea/
-.vscode/
+.env.*
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Test/cache
 .pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

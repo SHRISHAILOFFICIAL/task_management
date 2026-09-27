@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from app.database import get_db
-from app.schemas.task import TaskCreate, TaskResponse
+from app.schemas.task import TaskCreate,TaskUpdate, TaskResponse
 from app.services import task as task_service
 
 router = APIRouter(

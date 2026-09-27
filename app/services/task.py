@@ -22,7 +22,8 @@ def create_task(db: Session, task_data: TaskCreate):
 
     new_task = Task(
         title=task_data.title,
-        description=task_data.description
+        description=task_data.description,
+        priority=task_data.priority
     )
 
     return create_task_repository(db, new_task)
